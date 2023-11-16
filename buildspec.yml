@@ -3,17 +3,13 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: corretto17  # 사용할 Java 버전 지정
+      java: corretto17
     commands:
-      - echo "Installing phase - Installing dependencies"
-  pre_build:
-    commands:
-      - echo "Pre-build phase - Execute pre-build commands"
-  build:
-    commands:
-      - echo "Build phase - Executing build commands"
-      - chmod +x gradlew  # Gradle Wrapper에 실행 권한 부여
-      - ./gradlew assemble  # Gradle을 사용하여 JSP 프로젝트 빌드
+      - echo "Install phase - Installing dependencies"
+      - ls -al  # 현재 디렉토리의 파일 목록 표시
+      - gradle wrapper  # Gradle Wrapper 초기화
+      - chmod +x gradlew
+      - ./gradlew assemble
 
 artifacts:
   files:
