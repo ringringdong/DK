@@ -11,7 +11,7 @@ phases:
       - pwd
 artifacts:
   files:
-    - build/libs/*.jar
+    - /*
   discard-paths: yes
 cache:
   paths:
