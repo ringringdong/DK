@@ -7,7 +7,7 @@ String userID = request.getParameter("userID");
 String userPassword = request.getParameter("userPassword");
 //POST로 Input.html로부터 입력받은 내용을 변수화
 try{
-    //jdbc 참조변수 준비
+    //jhttps://github.com/ringringdong/DKdbc 참조변수 준비
     PreparedStatement pstmt = null;
     //드라이버 로딩
     Class.forName("com.mysql.jdbc.Driver");
