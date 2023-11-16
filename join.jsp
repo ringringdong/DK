@@ -14,7 +14,7 @@ try{
     String url = "jdbc:mysql://tier-3-rds.ckpqfjkmk5sf.ap-northeast-3.rds.amazonaws.com/micom";
     //db연동
     Connection con = DriverManager.getConnection(url,"root","mypassword");
-    //SQL준비
+    //SQL준비a
     String query = "INSERT INTO user(userID, userPassword) VALUES(?,?)";
     //prepareStatement 가 객체의 동일한 질의문을 특정값만 바꾸어서 여러번 실행할
 시유용
