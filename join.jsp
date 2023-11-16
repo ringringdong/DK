@@ -24,7 +24,7 @@ try{
     pstmt.setString(2, userPassword);
     //실행
     pstmt.executeUpdate();
-    //JDBC자원닫기
+    //JDBC자원닫기s
     pstmt.close();
     con.close();
 }
