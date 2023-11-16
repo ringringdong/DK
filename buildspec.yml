@@ -3,6 +3,7 @@ phases:
   build:
     commands:
       - echo Build Starting on `date`
+      - chmod +x gradlew
       - ./gradlew build
   post_build:
     commands:
@@ -10,7 +11,7 @@ phases:
       - pwd
 artifacts:
   files:
-    - /*
+    - '**/*'
   discard-paths: yes
 cache:
   paths:
