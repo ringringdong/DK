@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" import="java.sql.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" import="java.sql.*, javax.servlet.http.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%
 request.setCharacterEncoding("UTF-8");
@@ -7,23 +8,20 @@ request.setCharacterEncoding("UTF-8");
 String userID = request.getParameter("userID");
 String userPassword = request.getParameter("userPassword");
 
-// JDBC 연결 정보 설정
-String url = "jdbc:mysql://localhost:3306/your_database"; // 여기에 본인의 데이터베이스 정보 입력
-String username = "your_username"; // 본인의 DB 계정
-String password = "your_password"; // 본인의 DB 비밀번호
-
 try {
-   //jdbc 참조변수 준비
+    // jdbc 참조변수 준비
+    Connection con = null;
     PreparedStatement pstmt = null;
-    //드라이버 로딩
+
+    // 드라이버 로딩
     Class.forName("com.mysql.jdbc.Driver");
     String url = "jdbc:mysql://tier-3-rds.ckpqfjkmk5sf.ap-northeast-3.rds.amazonaws.com/micom";
-    //db연동
-    Connection con = DriverManager.getConnection(url,"root","mypassword");
+    // db연동
+    con = DriverManager.getConnection(url,"root","mypassword");
 
     // SQL 쿼리 준비
-    String query = "SELECT * FROM users WHERE userID=? AND userPassword=?";
-    PreparedStatement pstmt = con.prepareStatement(query);
+    String query = "SELECT * FROM user WHERE userID=? AND userPassword=?";
+    pstmt = con.prepareStatement(query);
     pstmt.setString(1, userID);
     pstmt.setString(2, userPassword);
 
@@ -32,14 +30,19 @@ try {
 
     // 로그인 확인
     if (rs.next()) {
-        // 로그인 성공 시 처리
-        // 여기에 로그인 성공 시 원하는 작업을 수행합니다.
-        // 예를 들어, 세션에 사용자 정보를 저장하거나 특정 페이지로 이동하는 등의 작업을 수행할 수 있습니다.
-        // 예시로 로그인 성공 메시지를 출력해봅니다.
+        // 세션 객체 생성
+        HttpSession session = null; // 세션 변수 초기화
+        session = request.getSession(true);
+
+        // 세션에 사용자 정보 저장
+        session.setAttribute("userID", userID);
+        session.setAttribute("email", rs.getString("email"));
+        session.setAttribute("phone_num", rs.getString("phone_num"));
+
         out.println("<h2>Login successful!</h2>");
+        
     } else {
         // 로그인 실패 시 처리
-        // 예를 들어, 로그인 실패 메시지를 출력하거나 다시 로그인 페이지로 이동하는 등의 작업을 수행할 수 있습니다.
         out.println("<h2>Login failed. Invalid username or password.</h2>");
     }
 

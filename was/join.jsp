@@ -39,6 +39,6 @@ catch (SQLException e) {
         e.printStackTrace(); // 에러 스택 트레이스 출력
     } catch (Exception e) {
     }
-response.sendRedirect("index.html");
+response.sendRedirect("sign_success.html");
 
 %>
