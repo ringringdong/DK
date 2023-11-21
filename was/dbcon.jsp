@@ -61,28 +61,47 @@
             background-color: #0056b3;
         }
 
+        /* 추가된 스타일 */
+        #topbar {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+        }
+
+        #topbar h2 {
+            margin: 0;
+            padding-left: 20px;
+        }
+
         form:last-child input[type="submit"] {
             margin-right: 0;
         }
     </style>
 </head>
 <body>
+
+    <!-- 상단 바 -->
+    <div id="topbar">
+        <h2>DK 3 TIER</h2>
+    </div>
+
     <div id="container">
-        <h1>DB조회 및 삭제(SERVER1)</h1>
+        <h1>DB Inquire delete   (SERVER1)</h1>
 
         <!-- Add a form to enter the user to delete -->
         <form action="" method="post">
-            <label for="userIDToDelete">사용자 ID</label>
+            <label for="userIDToDelete">USER ID</label>
             <input type="text" id="userIDToDelete" name="userIDToDelete">
-            <input type="submit" value="사용자 삭제">
+            <input type="submit" value="User Delete">
         </form>
 
         <form action="index.html">
-            <input type="submit" value="로그인 페이지">
+            <input type="submit" value="Login          ">
         </form>
 
         <form action="sign_up.html">
-            <input type="submit" value="회원가입  페이지">
+            <input type="submit" value="Sign_up      ">
         </form>
 
         <%-- Check if the form is submitted and perform user deletion --%>
@@ -100,9 +119,9 @@
                     deleteStatement = con.createStatement();
                     int rowCount = deleteStatement.executeUpdate("DELETE FROM user WHERE userID = '" + userIDToDelete + "'");
                     if (rowCount > 0) {
-                        out.println("사용자 " + userIDToDelete + "를 성공적으로 삭제했습니다.");
+                        out.println("User '" + userIDToDelete + "' Successfully deleted");
                     } else {
-                        out.println("사용자 " + userIDToDelete + "를 찾을 수 없거나 삭제 중 오류가 발생했습니>다.");
+                        out.println("User '" + userIDToDelete + "' An error occurred while deleting or unable to find.");
                     }
                 } catch (SQLException e) {
                     out.println("SQLException: " + e.getMessage());
@@ -123,7 +142,7 @@
             }
         %>
         <!-- Display the current user data from the database -->
-<h2 style="text-align: left;">사용자 목록</h2>
+<h2 style="text-align: left;">User list</h2>
 <div style="display: flex; justify-content: left;">
     <table style="text-align: left;">
         <tr>
