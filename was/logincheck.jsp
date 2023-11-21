@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" import="java.sql.*, javax.servlet.http.*" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%
 request.setCharacterEncoding("UTF-8");
@@ -30,20 +29,20 @@ try {
 
     // 로그인 확인
     if (rs.next()) {
-        // 세션 객체 생성
-        HttpSession session = null; // 세션 변수 초기화
-        session = request.getSession(true);
 
-        // 세션에 사용자 정보 저장
-        session.setAttribute("userID", userID);
-        session.setAttribute("email", rs.getString("email"));
-        session.setAttribute("phone_num", rs.getString("phone_num"));
-
-        out.println("<h2>Login successful!</h2>");
+    %>
+        <script>
+            window.location.href = "login_success.html";
+        </script>
+    <%
         
     } else {
         // 로그인 실패 시 처리
-        out.println("<h2>Login failed. Invalid username or password.</h2>");
+    %>
+        <script>
+            window.location.href = "login_failed.html";
+        </script>
+    <%
     }
 
     // 자원 해제

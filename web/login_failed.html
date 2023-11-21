@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LOGIN</title>
+    <style>
+        /* 스타일 */
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            width: 400px;
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            text-align: left;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        input[type="password"]{
+            margin-bottom: 30px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* 추가된 스타일 */
+        #topbar {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+        }
+
+        #topbar h2 {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        /* 회원가입 버튼 스타일 */
+        form[action="sign_up.html"] input[type="submit"] {
+            width: calc(100% - 20px);
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form[action="sign_up.html"] input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* 추가된 스타일 */
+        #dbConnectionButton {
+            width: calc(100% - 20px);
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+
+        #dbConnectionButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- 상단 바 -->
+    <div id="topbar">
+        <h2>DK 3 TIER</h2>
+    </div>
+
+    <!-- 로그인 실패 메시지 -->
+    <div id="container">
+        <h1>Login failed. Invalid username or password.</h1>
+        
+        <!-- DB 연결 페이지로 이동하는 버튼 -->
+        <form action="index.html">
+            <input id="dbConnectionButton" type="submit" value="login page">
+        </form>
+    </div>
+</body>
+</html>
