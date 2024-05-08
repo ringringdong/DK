@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DK3_tier_SV</title>
+    <title>APM SV</title>
     <style>
         body {
             background-color: #f0f0f0;
@@ -83,11 +83,11 @@
 
     <!-- 상단 바 -->
     <div id="topbar">
-        <h2>DK 3 TIER</h2>
+        <h2>APM Server</h2>
     </div>
 
     <div id="container">
-        <h1>DB Inquire delete   (SERVER1)</h1>
+        <h1>DB Inquire delete</h1>
 
         <!-- Add a form to enter the user to delete -->
         <form action="" method="post">
@@ -101,7 +101,7 @@
         </form>
 
         <form action="http://192.168.56.2/sign_up.html">
-            <input type="submit" value="Sign_up      ">
+            <input type="submit" value="Sign Up      ">
         </form>
 
         <%-- Check if the form is submitted and perform user deletion --%>
