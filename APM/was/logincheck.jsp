@@ -13,10 +13,10 @@ try {
     PreparedStatement pstmt = null;
 
     // 드라이버 로딩
-    Class.forName("com.mysql.jdbc.Driver");
-    String url = "jdbc:mysql://tier-3-rds.ckpqfjkmk5sf.ap-northeast-3.rds.amazonaws.com/micom";
+    Class.forName("org.mariadb.jdbc.Driver");
+    String url = "jdbc:mariadb://localhost:3306/micom";
     // db연동
-    con = DriverManager.getConnection(url,"root","mypassword");
+    con = DriverManager.getConnection(url,"dk","1234");
 
     // SQL 쿼리 준비
     String query = "SELECT * FROM user WHERE userID=? AND userPassword=?";
@@ -32,7 +32,7 @@ try {
 
     %>
         <script>
-            window.location.href = "login_success.html";
+            window.location.href = "http://192.168.56.2/login_success.html";
         </script>
     <%
         
@@ -40,7 +40,7 @@ try {
         // 로그인 실패 시 처리
     %>
         <script>
-            window.location.href = "login_failed.html";
+            window.location.href = "http://192.168.56.2/login_failed.html";
         </script>
     <%
     }

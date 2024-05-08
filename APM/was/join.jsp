@@ -13,10 +13,10 @@ try{
     //jdbc 참조변수 준비
     PreparedStatement pstmt = null;
     //드라이버 로딩
-    Class.forName("com.mysql.jdbc.Driver");
-    String url = "jdbc:mysql://tier-3-rds.ckpqfjkmk5sf.ap-northeast-3.rds.amazonaws.com/micom";
+    Class.forName("org.mariadb.jdbc.Driver");
+    String url = "jdbc:mariadb://localhost:3306/micom";
     //db연동
-    Connection con = DriverManager.getConnection(url,"root","mypassword");
+    Connection con = DriverManager.getConnection(url,"dk","1234");
     //SQL준비
     String query = "INSERT INTO user(userID, userPassword, email, phone_num) VALUES(?,?,?,?)";
     //prepareStatement 가 객체의 동일한 질의문을 특정값만 바꾸어서 여러번 실행할시유용
@@ -33,12 +33,15 @@ try{
     con.close();
 }
 catch (SQLException e) {
-        out.println("SQLException: " + e.getMessage());
-        out.println("SQLState: " + e.getSQLState());
-        out.println("VendorError: " + e.getErrorCode());
-        e.printStackTrace(); // 에러 스택 트레이스 출력
-    } catch (Exception e) {
-    }
-response.sendRedirect("http://192.168.56.2/sign_success.html");
-
+    // 오류 발생 시 오류 메시지 출력
+    out.println("SQLException: " + e.getMessage());
+    out.println("SQLState: " + e.getSQLState());
+    out.println("VendorError: " + e.getErrorCode());
+    e.printStackTrace(); // 에러 스택 트레이스 출력
+} catch (Exception e) {
+    // 오류 발생 시 오류 메시지 출력
+    out.println("Exception: " + e.getMessage());
+    e.printStackTrace(); // 에러 스택 트레이스 출력
+}
+    response.sendRedirect("http://192.168.56.2/sign_success.html");
 %>

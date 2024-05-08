@@ -96,11 +96,11 @@
             <input type="submit" value="User Delete">
         </form>
 
-        <form action="index.html">
+        <form action="http://192.168.56.2/">
             <input type="submit" value="Login          ">
         </form>
 
-        <form action="sign_up.html">
+        <form action="http://192.168.56.2/sign_up.html">
             <input type="submit" value="Sign_up      ">
         </form>
 
@@ -112,9 +112,9 @@
                 Connection con = null; // Connection 객체 정의
                 Statement deleteStatement = null;
                 try {
-                    Class.forName("com.mysql.jdbc.Driver");
-                    String myUrl = "jdbc:mysql://tier-3-rds.ckpqfjkmk5sf.ap-northeast-3.rds.amazonaws.com/micom";
-                    con = DriverManager.getConnection(myUrl, "root", "mypassword"); // Connection 초기화
+                    Class.forName("org.mariadb.jdbc.Driver");
+                    String myUrl = "jdbc:mariadb://localhost:3306/micom";
+                    con = DriverManager.getConnection(myUrl, "dk", "1234"); // Connection 초기화
 
                     deleteStatement = con.createStatement();
                     int rowCount = deleteStatement.executeUpdate("DELETE FROM user WHERE userID = '" + userIDToDelete + "'");
@@ -154,9 +154,9 @@
             Statement stm = null;
             ResultSet rs = null;
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                String myUrl = "jdbc:mysql://tier-3-rds.ckpqfjkmk5sf.ap-northeast-3.rds.amazonaws.com/micom";
-                con = DriverManager.getConnection(myUrl, "root", "mypassword"); // Connection 초기화
+                Class.forName("org.mariadb.jdbc.Driver");
+                String myUrl = "jdbc:mariadb://localhost:3306/micom";
+                con = DriverManager.getConnection(myUrl, "dk", "1234"); // Connection 초기화
 
                 stm = con.createStatement();
                 if (stm.execute("SELECT * FROM user")) {
