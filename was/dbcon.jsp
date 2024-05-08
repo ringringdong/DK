@@ -6,7 +6,7 @@
     <title>DK3_tier_SV</title>
     <style>
         body {
-            background-color: #f0f0f0;ss
+            background-color: #f0f0f0;
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
