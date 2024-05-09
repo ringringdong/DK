@@ -96,11 +96,11 @@
             <input type="submit" value="User Delete">
         </form>
 
-        <form action="http://192.168.56.2/">
-            <input type="submit" value="Login          ">
+        <form action="http://192.168.56.210:8080/mypage">
+            <input type="submit" value="Mypage      ">
         </form>
 
-        <form action="http://192.168.56.2/sign_up.html">
+        <form action="http://192.168.56.210/sign_up.html">
             <input type="submit" value="Sign Up      ">
         </form>
 
@@ -114,7 +114,7 @@
                 try {
                     Class.forName("org.mariadb.jdbc.Driver");
                     String myUrl = "jdbc:mariadb://localhost:3306/micom";
-                    con = DriverManager.getConnection(myUrl, "dk", "1234"); // Connection 초기화
+                    con = DriverManager.getConnection(myUrl, "user", "password1234!"); // Connection 초기화
 
                     deleteStatement = con.createStatement();
                     int rowCount = deleteStatement.executeUpdate("DELETE FROM user WHERE userID = '" + userIDToDelete + "'");
@@ -156,7 +156,7 @@
             try {
                 Class.forName("org.mariadb.jdbc.Driver");
                 String myUrl = "jdbc:mariadb://localhost:3306/micom";
-                con = DriverManager.getConnection(myUrl, "dk", "1234"); // Connection 초기화
+                con = DriverManager.getConnection(myUrl, "user", "password1234!"); // Connection 초기화
 
                 stm = con.createStatement();
                 if (stm.execute("SELECT * FROM user")) {

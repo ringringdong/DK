@@ -16,7 +16,7 @@ try {
     Class.forName("org.mariadb.jdbc.Driver");
     String url = "jdbc:mariadb://localhost:3306/micom";
     // db연동
-    con = DriverManager.getConnection(url,"dk","1234");
+    con = DriverManager.getConnection(url,"user","password1234!");
 
     // SQL 쿼리 준비
     String query = "SELECT * FROM user WHERE userID=? AND userPassword=?";
@@ -29,10 +29,18 @@ try {
 
     // 로그인 확인
     if (rs.next()) {
-
+        // 세션 테이블에 사용자 정보 삽입
+        String insertQuery = "INSERT INTO session (userID, userPassword, email, phone_num) VALUES (?, ?, ?, ?)";
+        PreparedStatement insertStmt = con.prepareStatement(insertQuery);
+        insertStmt.setString(1, rs.getString("userID"));
+        insertStmt.setString(2, rs.getString("userPassword"));
+        insertStmt.setString(3, rs.getString("email"));
+        insertStmt.setString(4, rs.getString("phone_num"));
+        insertStmt.executeUpdate();
+        insertStmt.close();
     %>
         <script>
-            window.location.href = "http://192.168.56.2/login_success.html";
+            window.location.href = "http://192.168.56.210/login_success.html";
         </script>
     <%
         
@@ -40,7 +48,7 @@ try {
         // 로그인 실패 시 처리
     %>
         <script>
-            window.location.href = "http://192.168.56.2/login_failed.html";
+            window.location.href = "http://192.168.56.210/login_failed.html";
         </script>
     <%
     }
