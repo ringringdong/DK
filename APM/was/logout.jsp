@@ -40,7 +40,7 @@
     }
 
     // 로그아웃 후 리다이렉트할 URL을 지정합니다.
-    String redirectURL = "http://192.168.56.210"; // 원하는 URL로 변경하세요.
+    String redirectURL = "http://192.168.56.220"; // 원하는 URL로 변경하세요.
 
     // 지정된 URL로 리다이렉트합니다.
     response.sendRedirect(redirectURL);

@@ -45,5 +45,5 @@ catch (SQLException e) {
     e.printStackTrace();
 }
 
-    response.sendRedirect("http://192.168.56.210/sign_success.html");
+    response.sendRedirect("http://192.168.56.220/sign_success.html");
 %>

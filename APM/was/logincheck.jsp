@@ -40,7 +40,7 @@ try {
         insertStmt.close();
     %>
         <script>
-            window.location.href = "http://192.168.56.210/login_success.html";
+            window.location.href = "http://192.168.56.220/login_success.html";
         </script>
     <%
         
@@ -48,7 +48,7 @@ try {
         // 로그인 실패 시 처리
     %>
         <script>
-            window.location.href = "http://192.168.56.210/login_failed.html";
+            window.location.href = "http://192.168.56.220/login_failed.html";
         </script>
     <%
     }
